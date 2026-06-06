@@ -6,8 +6,14 @@ colored primitive at baked-in coordinates, so the app can stack them by z-order
 alone. Shapes are drawn at SUPERSAMPLE x then downscaled (LANCZOS) so curved /
 rounded edges come out anti-aliased (Pillow's draw routines are not).
 
+Each selectable category gets VARIANTS (10) colour options named <Category>NN
+(01..10). Colours come from a shared PALETTE, rotated per category so each
+category's default (01) is a different hue (keeps the default avatar legible).
+Multi-select categories spread their 10 options across different positions so
+several can be toggled on at once. CardChrome is fixed (one frame overlay).
+
 These are throwaway stand-ins: real hand-drawn art replaces them later by
-dropping PNGs of the same name into the same category folders.
+dropping PNGs into the same category folders and rerunning `npm run assets`.
 
 Usage:
     python scripts/generate_placeholders.py            # write all PNGs
@@ -30,86 +36,60 @@ TRANSPARENT = (0, 0, 0, 0)
 S = SUPERSAMPLE
 FACE_CX = 990  # horizontal mirror axis (face center) for paired features: ears, eyes, brows
 
+VARIANTS = 10                  # colour options per selectable category
+CHROME_INK = "#5A3A4A"
+
+# Shared 10-colour palette (name, hex). Rotated per category for distinct defaults.
+PALETTE = [
+    ("Red", "#E0566B"),
+    ("Orange", "#E8924A"),
+    ("Yellow", "#F2C14E"),
+    ("Green", "#7AC74F"),
+    ("Teal", "#4FC4B0"),
+    ("Blue", "#4A8FE0"),
+    ("Indigo", "#5B5BD6"),
+    ("Purple", "#A86FD6"),
+    ("Pink", "#E879A6"),
+    ("Brown", "#8A5A3B"),
+]
+
 
 def rgba(h: str, a: int = 255) -> tuple[int, int, int, int]:
     h = h.lstrip("#")
     return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16), a)
 
 
-# --- Asset table -----------------------------------------------------------
-# Each row: (category, name, shape, geom, fill_hex)
-#   shape "rect"/"rrect": geom = {"box": (x, y, w, h), "r": corner_radius}
-#   shape "ellipse":      geom = {"center": (cx, cy), "radii": (rx, ry)}
-#   shape "circle":       geom = {"center": (cx, cy), "r": radius}
-#   shape "chrome":       geom = None  (frame + label lines + barcode; fill = ink)
-#   add "mirror": True to geom to also draw a horizontal mirror across FACE_CX (paired features)
-# Geometry is in 1x canvas pixels; scaled by SUPERSAMPLE at draw time.
-ASSETS = [
-    # ---- single-select: two color variants at the SAME position ----
-    ("CardBase",      "CardBasePink",       "rrect",   {"box": (90, 90, 3660, 2240), "r": 140}, "#F7C5D0"),
-    ("CardBase",      "CardBaseBlue",       "rrect",   {"box": (90, 90, 3660, 2240), "r": 140}, "#BBD3F2"),
-    ("PhotoBackdrop", "PhotoBackdropCream", "rect",    {"box": (240, 360, 1500, 1700)},         "#FFE9A8"),
-    ("PhotoBackdrop", "PhotoBackdropMint",  "rect",    {"box": (240, 360, 1500, 1700)},         "#CDEFD6"),
-    ("BodyBase",      "BodyBaseWarm",       "rrect",   {"box": (440, 1520, 1100, 540), "r": 120}, "#E8B894"),
-    ("BodyBase",      "BodyBaseTan",        "rrect",   {"box": (440, 1520, 1100, 540), "r": 120}, "#C98E6B"),
-    ("Clothes",       "ClothesTeal",        "rect",    {"box": (500, 1580, 980, 480)},          "#7FC8B8"),
-    ("Clothes",       "ClothesLavender",    "rect",    {"box": (500, 1580, 980, 480)},          "#C3A6E0"),
-    ("HairBack",      "HairBackBrown",      "rect",    {"box": (560, 560, 860, 920)},           "#5A3D26"),
-    ("HairBack",      "HairBackBlack",      "rect",    {"box": (560, 560, 860, 920)},           "#211F1E"),
-    ("Face",          "FacePeach",          "ellipse", {"center": (990, 1080), "radii": (320, 400)}, "#FCE0C0"),
-    ("Face",          "FaceTan",            "ellipse", {"center": (990, 1080), "radii": (320, 400)}, "#F6CBA6"),
-    ("HairFront",     "HairFrontBrown",     "rect",    {"box": (620, 600, 740, 420)},           "#6B4A2F"),
-    ("HairFront",     "HairFrontAuburn",    "rect",    {"box": (620, 600, 740, 420)},           "#C24B5A"),
-    ("Glasses",       "GlassesBlack",       "rrect",   {"box": (740, 980, 500, 120), "r": 40},  "#2E2A28"),
-    ("Glasses",       "GlassesBlue",        "rrect",   {"box": (740, 980, 500, 120), "r": 40},  "#2A6FB0"),
-    # ---- facial features (granular, single-select; "mirror" pairs across FACE_CX) ----
-    ("Ears",  "EarsLight",  "ellipse", {"center": (680, 1090), "radii": (70, 120), "mirror": True}, "#FCE0C0"),
-    ("Ears",  "EarsTan",    "ellipse", {"center": (680, 1090), "radii": (70, 120), "mirror": True}, "#F6CBA6"),
-    ("Eyes",  "EyesBrown",  "ellipse", {"center": (870, 1040), "radii": (55, 38), "mirror": True},  "#5B3A29"),
-    ("Eyes",  "EyesBlue",   "ellipse", {"center": (870, 1040), "radii": (55, 38), "mirror": True},  "#3A6EA5"),
-    ("Brows", "BrowsBrown", "rrect",   {"box": (800, 952, 140, 30), "r": 15, "mirror": True},       "#6B4A2F"),
-    ("Brows", "BrowsBlack", "rrect",   {"box": (800, 952, 140, 30), "r": 15, "mirror": True},       "#2E2A28"),
-    ("Nose",  "NoseLight",  "rrect",   {"box": (962, 1085, 56, 130), "r": 24},                      "#E8B894"),
-    ("Nose",  "NoseTan",    "rrect",   {"box": (962, 1085, 56, 130), "r": 24},                      "#C98E6B"),
-    ("Mouth", "MouthPink",  "rrect",   {"box": (882, 1270, 216, 64), "r": 30},                      "#D9657A"),
-    ("Mouth", "MouthCoral", "rrect",   {"box": (882, 1270, 216, 64), "r": 30},                      "#E0815A"),
-    ("Beard", "BeardBrown", "rrect",   {"box": (760, 1330, 460, 200), "r": 90},                     "#6B4A2F"),
-    ("Beard", "BeardBlack", "rrect",   {"box": (760, 1330, 460, 200), "r": 90},                     "#2E2A28"),
-    # ---- multi-select: two options at DIFFERENT positions ----
-    ("Headwear",      "HeadwearCapRed",     "rect",    {"box": (640, 460, 700, 160)},           "#E0556A"),
-    ("Headwear",      "HeadwearBowBlue",    "rect",    {"box": (1240, 420, 260, 180)},          "#4A8FE0"),
-    ("Badges",        "BadgeStarGold",      "circle",  {"center": (420, 2190), "r": 110},       "#FFD23F"),
-    ("Badges",        "BadgeCheckGreen",    "circle",  {"center": (720, 2190), "r": 110},       "#7AC74F"),
-    ("Stickers",      "StickerHeartPink",   "rect",    {"box": (3380, 260, 240, 240)},          "#FF7AA2"),
-    ("Stickers",      "StickerStarCyan",    "rect",    {"box": (3380, 1780, 240, 240)},         "#62C2E0"),
-    # ---- fixed: one overlay (frame + label underlines + barcode) ----
-    ("CardChrome",    "CardChromeDefault",  "chrome",  None,                                    "#5A3A4A"),
-]
-
-# z-order (back -> front) for the --preview composite: variant A of each
-# single-select, both multi options, then the chrome overlay on top.
-PREVIEW_ORDER = [
-    ("CardBase", "CardBasePink"),
-    ("PhotoBackdrop", "PhotoBackdropCream"),
-    ("BodyBase", "BodyBaseWarm"),
-    ("Clothes", "ClothesTeal"),
-    ("HairBack", "HairBackBrown"),
-    ("Ears", "EarsLight"),
-    ("Face", "FacePeach"),
-    ("HairFront", "HairFrontBrown"),
-    ("Eyes", "EyesBrown"),
-    ("Brows", "BrowsBrown"),
-    ("Nose", "NoseLight"),
-    ("Mouth", "MouthPink"),
-    ("Beard", "BeardBrown"),
-    ("Glasses", "GlassesBlack"),
-    ("Headwear", "HeadwearCapRed"),
-    ("Headwear", "HeadwearBowBlue"),
-    ("Badges", "BadgeStarGold"),
-    ("Badges", "BadgeCheckGreen"),
-    ("Stickers", "StickerHeartPink"),
-    ("Stickers", "StickerStarCyan"),
-    ("CardChrome", "CardChromeDefault"),
+# --- Category table (z-order back -> front) --------------------------------
+# Each row: (id, kind, shape, geom_fn)
+#   kind  "single" -> VARIANTS colour options at one fixed position
+#         "multi"  -> VARIANTS options laid out at different positions
+#         "fixed"  -> a single option (the chrome overlay)
+#   shape "rect"/"rrect" -> geom {"box": (x, y, w, h), "r": radius}
+#         "ellipse"      -> geom {"center": (cx, cy), "radii": (rx, ry)}
+#         "circle"       -> geom {"center": (cx, cy), "r": radius}
+#         "chrome"       -> geom None
+#   add "mirror": True to a geom to also draw its horizontal mirror across FACE_CX.
+#   geom_fn(j) gets the 0-based option index; single/fixed ignore it, multi
+#   uses it to spread the 10 options out.
+CATEGORIES = [
+    ("CardBase",      "single", "rrect",   lambda j: {"box": (90, 90, 3660, 2240), "r": 140}),
+    ("PhotoBackdrop", "single", "rect",    lambda j: {"box": (240, 360, 1500, 1700)}),
+    ("BodyBase",      "single", "rrect",   lambda j: {"box": (440, 1520, 1100, 540), "r": 120}),
+    ("Clothes",       "single", "rect",    lambda j: {"box": (500, 1580, 980, 480)}),
+    ("HairBack",      "single", "rect",    lambda j: {"box": (560, 560, 860, 920)}),
+    ("Ears",          "single", "ellipse", lambda j: {"center": (680, 1090), "radii": (70, 120), "mirror": True}),
+    ("Face",          "single", "ellipse", lambda j: {"center": (990, 1080), "radii": (320, 400)}),
+    ("HairFront",     "single", "rect",    lambda j: {"box": (620, 600, 740, 420)}),
+    ("Eyes",          "single", "ellipse", lambda j: {"center": (870, 1040), "radii": (55, 38), "mirror": True}),
+    ("Brows",         "single", "rrect",   lambda j: {"box": (800, 952, 140, 30), "r": 15, "mirror": True}),
+    ("Nose",          "single", "rrect",   lambda j: {"box": (962, 1085, 56, 130), "r": 24}),
+    ("Mouth",         "single", "rrect",   lambda j: {"box": (882, 1270, 216, 64), "r": 30}),
+    ("Beard",         "single", "rrect",   lambda j: {"box": (760, 1330, 460, 200), "r": 90}),
+    ("Glasses",       "single", "rrect",   lambda j: {"box": (740, 980, 500, 120), "r": 40}),
+    ("Headwear",      "multi",  "rect",    lambda j: {"box": (600 + j * 82, 470, 64, 150)}),
+    ("Badges",        "multi",  "circle",  lambda j: {"center": (380 + j * 148, 2190), "r": 64}),
+    ("Stickers",      "multi",  "rect",    lambda j: {"box": (3540, 230 + j * 195, 160, 160)}),
+    ("CardChrome",    "fixed",  "chrome",  lambda j: None),
 ]
 
 
@@ -178,11 +158,26 @@ def render(shape: str, geom, fill_hex: str) -> Image.Image:
     return out
 
 
+def options_for(k: int, cat) -> list[tuple[str, str]]:
+    """Return [(name, hex)] for category at z-index k."""
+    cid, kind = cat[0], cat[1]
+    if kind == "fixed":
+        return [("CardChromeDefault", CHROME_INK)]
+    return [(f"{cid}{j + 1:02d}", PALETTE[(k + j) % len(PALETTE)][1]) for j in range(VARIANTS)]
+
+
 def build_preview(path: Path) -> None:
+    """Composite each single category's default (01) + the chrome (multi off by default)."""
     bg = Image.new("RGBA", CANVAS, (221, 221, 221, 255))
-    for cat, name in PREVIEW_ORDER:
-        with Image.open(OUT_ROOT / cat / f"{name}.png") as im:
-            bg.alpha_composite(im.convert("RGBA"))
+    for cat in CATEGORIES:
+        cid, kind = cat[0], cat[1]
+        if kind == "multi":
+            continue
+        name = "CardChromeDefault" if kind == "fixed" else f"{cid}01"
+        p = OUT_ROOT / cid / f"{name}.png"
+        if p.exists():
+            with Image.open(p) as im:
+                bg.alpha_composite(im.convert("RGBA"))
     w = 1200
     preview = bg.convert("RGB").resize((w, round(w / (CANVAS[0] / CANVAS[1]))), Image.Resampling.LANCZOS)
     preview.save(path)
@@ -195,14 +190,18 @@ def main() -> None:
     args = ap.parse_args()
 
     count = 0
-    for cat, name, shape, geom, fill in ASSETS:
-        out_dir = OUT_ROOT / cat
+    for k, cat in enumerate(CATEGORIES):
+        cid, _kind, shape, geom_fn = cat
+        out_dir = OUT_ROOT / cid
         out_dir.mkdir(parents=True, exist_ok=True)
-        img = render(shape, geom, fill)
-        img.save(out_dir / f"{name}.png")
-        img.close()
-        count += 1
-    print(f"wrote {count} PNGs under {OUT_ROOT.relative_to(REPO_ROOT)}")
+        for old in out_dir.glob("*.png"):  # clear stale variants so the output is canonical
+            old.unlink()
+        for j, (name, color) in enumerate(options_for(k, cat)):
+            img = render(shape, geom_fn(j), color)
+            img.save(out_dir / f"{name}.png")
+            img.close()
+            count += 1
+    print(f"wrote {count} PNGs across {len(CATEGORIES)} categories under {OUT_ROOT.relative_to(REPO_ROOT)}")
 
     if args.preview:
         build_preview(REPO_ROOT / "scripts" / "preview.png")
