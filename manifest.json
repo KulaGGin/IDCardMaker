@@ -1,0 +1,1049 @@
+{
+  "canvas": {
+    "width": 3840,
+    "height": 2420
+  },
+  "categories": [
+    {
+      "id": "CardBase",
+      "label": "Card",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "CardBase01",
+          "src": "/art/layers/CardBase/CardBase01.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase01.png"
+        },
+        {
+          "id": "CardBase02",
+          "src": "/art/layers/CardBase/CardBase02.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase02.png"
+        },
+        {
+          "id": "CardBase03",
+          "src": "/art/layers/CardBase/CardBase03.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase03.png"
+        },
+        {
+          "id": "CardBase04",
+          "src": "/art/layers/CardBase/CardBase04.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase04.png"
+        },
+        {
+          "id": "CardBase05",
+          "src": "/art/layers/CardBase/CardBase05.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase05.png"
+        },
+        {
+          "id": "CardBase06",
+          "src": "/art/layers/CardBase/CardBase06.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase06.png"
+        },
+        {
+          "id": "CardBase07",
+          "src": "/art/layers/CardBase/CardBase07.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase07.png"
+        },
+        {
+          "id": "CardBase08",
+          "src": "/art/layers/CardBase/CardBase08.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase08.png"
+        },
+        {
+          "id": "CardBase09",
+          "src": "/art/layers/CardBase/CardBase09.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase09.png"
+        },
+        {
+          "id": "CardBase10",
+          "src": "/art/layers/CardBase/CardBase10.png",
+          "thumb": "/art/thumbnails/CardBase/CardBase10.png"
+        }
+      ]
+    },
+    {
+      "id": "PhotoBackdrop",
+      "label": "Backdrop",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "PhotoBackdrop01",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop01.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop01.png"
+        },
+        {
+          "id": "PhotoBackdrop02",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop02.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop02.png"
+        },
+        {
+          "id": "PhotoBackdrop03",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop03.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop03.png"
+        },
+        {
+          "id": "PhotoBackdrop04",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop04.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop04.png"
+        },
+        {
+          "id": "PhotoBackdrop05",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop05.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop05.png"
+        },
+        {
+          "id": "PhotoBackdrop06",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop06.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop06.png"
+        },
+        {
+          "id": "PhotoBackdrop07",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop07.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop07.png"
+        },
+        {
+          "id": "PhotoBackdrop08",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop08.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop08.png"
+        },
+        {
+          "id": "PhotoBackdrop09",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop09.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop09.png"
+        },
+        {
+          "id": "PhotoBackdrop10",
+          "src": "/art/layers/PhotoBackdrop/PhotoBackdrop10.png",
+          "thumb": "/art/thumbnails/PhotoBackdrop/PhotoBackdrop10.png"
+        }
+      ]
+    },
+    {
+      "id": "BodyBase",
+      "label": "Body",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "BodyBase01",
+          "src": "/art/layers/BodyBase/BodyBase01.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase01.png"
+        },
+        {
+          "id": "BodyBase02",
+          "src": "/art/layers/BodyBase/BodyBase02.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase02.png"
+        },
+        {
+          "id": "BodyBase03",
+          "src": "/art/layers/BodyBase/BodyBase03.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase03.png"
+        },
+        {
+          "id": "BodyBase04",
+          "src": "/art/layers/BodyBase/BodyBase04.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase04.png"
+        },
+        {
+          "id": "BodyBase05",
+          "src": "/art/layers/BodyBase/BodyBase05.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase05.png"
+        },
+        {
+          "id": "BodyBase06",
+          "src": "/art/layers/BodyBase/BodyBase06.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase06.png"
+        },
+        {
+          "id": "BodyBase07",
+          "src": "/art/layers/BodyBase/BodyBase07.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase07.png"
+        },
+        {
+          "id": "BodyBase08",
+          "src": "/art/layers/BodyBase/BodyBase08.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase08.png"
+        },
+        {
+          "id": "BodyBase09",
+          "src": "/art/layers/BodyBase/BodyBase09.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase09.png"
+        },
+        {
+          "id": "BodyBase10",
+          "src": "/art/layers/BodyBase/BodyBase10.png",
+          "thumb": "/art/thumbnails/BodyBase/BodyBase10.png"
+        }
+      ]
+    },
+    {
+      "id": "Clothes",
+      "label": "Clothes",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "Clothes01",
+          "src": "/art/layers/Clothes/Clothes01.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes01.png"
+        },
+        {
+          "id": "Clothes02",
+          "src": "/art/layers/Clothes/Clothes02.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes02.png"
+        },
+        {
+          "id": "Clothes03",
+          "src": "/art/layers/Clothes/Clothes03.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes03.png"
+        },
+        {
+          "id": "Clothes04",
+          "src": "/art/layers/Clothes/Clothes04.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes04.png"
+        },
+        {
+          "id": "Clothes05",
+          "src": "/art/layers/Clothes/Clothes05.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes05.png"
+        },
+        {
+          "id": "Clothes06",
+          "src": "/art/layers/Clothes/Clothes06.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes06.png"
+        },
+        {
+          "id": "Clothes07",
+          "src": "/art/layers/Clothes/Clothes07.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes07.png"
+        },
+        {
+          "id": "Clothes08",
+          "src": "/art/layers/Clothes/Clothes08.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes08.png"
+        },
+        {
+          "id": "Clothes09",
+          "src": "/art/layers/Clothes/Clothes09.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes09.png"
+        },
+        {
+          "id": "Clothes10",
+          "src": "/art/layers/Clothes/Clothes10.png",
+          "thumb": "/art/thumbnails/Clothes/Clothes10.png"
+        }
+      ]
+    },
+    {
+      "id": "HairBack",
+      "label": "Hair (back)",
+      "select": "single",
+      "options": [
+        {
+          "id": "HairBack01",
+          "src": "/art/layers/HairBack/HairBack01.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack01.png"
+        },
+        {
+          "id": "HairBack02",
+          "src": "/art/layers/HairBack/HairBack02.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack02.png"
+        },
+        {
+          "id": "HairBack03",
+          "src": "/art/layers/HairBack/HairBack03.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack03.png"
+        },
+        {
+          "id": "HairBack04",
+          "src": "/art/layers/HairBack/HairBack04.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack04.png"
+        },
+        {
+          "id": "HairBack05",
+          "src": "/art/layers/HairBack/HairBack05.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack05.png"
+        },
+        {
+          "id": "HairBack06",
+          "src": "/art/layers/HairBack/HairBack06.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack06.png"
+        },
+        {
+          "id": "HairBack07",
+          "src": "/art/layers/HairBack/HairBack07.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack07.png"
+        },
+        {
+          "id": "HairBack08",
+          "src": "/art/layers/HairBack/HairBack08.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack08.png"
+        },
+        {
+          "id": "HairBack09",
+          "src": "/art/layers/HairBack/HairBack09.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack09.png"
+        },
+        {
+          "id": "HairBack10",
+          "src": "/art/layers/HairBack/HairBack10.png",
+          "thumb": "/art/thumbnails/HairBack/HairBack10.png"
+        }
+      ]
+    },
+    {
+      "id": "Ears",
+      "label": "Ears",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "Ears01",
+          "src": "/art/layers/Ears/Ears01.png",
+          "thumb": "/art/thumbnails/Ears/Ears01.png"
+        },
+        {
+          "id": "Ears02",
+          "src": "/art/layers/Ears/Ears02.png",
+          "thumb": "/art/thumbnails/Ears/Ears02.png"
+        },
+        {
+          "id": "Ears03",
+          "src": "/art/layers/Ears/Ears03.png",
+          "thumb": "/art/thumbnails/Ears/Ears03.png"
+        },
+        {
+          "id": "Ears04",
+          "src": "/art/layers/Ears/Ears04.png",
+          "thumb": "/art/thumbnails/Ears/Ears04.png"
+        },
+        {
+          "id": "Ears05",
+          "src": "/art/layers/Ears/Ears05.png",
+          "thumb": "/art/thumbnails/Ears/Ears05.png"
+        },
+        {
+          "id": "Ears06",
+          "src": "/art/layers/Ears/Ears06.png",
+          "thumb": "/art/thumbnails/Ears/Ears06.png"
+        },
+        {
+          "id": "Ears07",
+          "src": "/art/layers/Ears/Ears07.png",
+          "thumb": "/art/thumbnails/Ears/Ears07.png"
+        },
+        {
+          "id": "Ears08",
+          "src": "/art/layers/Ears/Ears08.png",
+          "thumb": "/art/thumbnails/Ears/Ears08.png"
+        },
+        {
+          "id": "Ears09",
+          "src": "/art/layers/Ears/Ears09.png",
+          "thumb": "/art/thumbnails/Ears/Ears09.png"
+        },
+        {
+          "id": "Ears10",
+          "src": "/art/layers/Ears/Ears10.png",
+          "thumb": "/art/thumbnails/Ears/Ears10.png"
+        }
+      ]
+    },
+    {
+      "id": "Face",
+      "label": "Face",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "Face01",
+          "src": "/art/layers/Face/Face01.png",
+          "thumb": "/art/thumbnails/Face/Face01.png"
+        },
+        {
+          "id": "Face02",
+          "src": "/art/layers/Face/Face02.png",
+          "thumb": "/art/thumbnails/Face/Face02.png"
+        },
+        {
+          "id": "Face03",
+          "src": "/art/layers/Face/Face03.png",
+          "thumb": "/art/thumbnails/Face/Face03.png"
+        },
+        {
+          "id": "Face04",
+          "src": "/art/layers/Face/Face04.png",
+          "thumb": "/art/thumbnails/Face/Face04.png"
+        },
+        {
+          "id": "Face05",
+          "src": "/art/layers/Face/Face05.png",
+          "thumb": "/art/thumbnails/Face/Face05.png"
+        },
+        {
+          "id": "Face06",
+          "src": "/art/layers/Face/Face06.png",
+          "thumb": "/art/thumbnails/Face/Face06.png"
+        },
+        {
+          "id": "Face07",
+          "src": "/art/layers/Face/Face07.png",
+          "thumb": "/art/thumbnails/Face/Face07.png"
+        },
+        {
+          "id": "Face08",
+          "src": "/art/layers/Face/Face08.png",
+          "thumb": "/art/thumbnails/Face/Face08.png"
+        },
+        {
+          "id": "Face09",
+          "src": "/art/layers/Face/Face09.png",
+          "thumb": "/art/thumbnails/Face/Face09.png"
+        },
+        {
+          "id": "Face10",
+          "src": "/art/layers/Face/Face10.png",
+          "thumb": "/art/thumbnails/Face/Face10.png"
+        }
+      ]
+    },
+    {
+      "id": "HairFront",
+      "label": "Hair",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "HairFront01",
+          "src": "/art/layers/HairFront/HairFront01.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront01.png"
+        },
+        {
+          "id": "HairFront02",
+          "src": "/art/layers/HairFront/HairFront02.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront02.png"
+        },
+        {
+          "id": "HairFront03",
+          "src": "/art/layers/HairFront/HairFront03.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront03.png"
+        },
+        {
+          "id": "HairFront04",
+          "src": "/art/layers/HairFront/HairFront04.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront04.png"
+        },
+        {
+          "id": "HairFront05",
+          "src": "/art/layers/HairFront/HairFront05.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront05.png"
+        },
+        {
+          "id": "HairFront06",
+          "src": "/art/layers/HairFront/HairFront06.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront06.png"
+        },
+        {
+          "id": "HairFront07",
+          "src": "/art/layers/HairFront/HairFront07.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront07.png"
+        },
+        {
+          "id": "HairFront08",
+          "src": "/art/layers/HairFront/HairFront08.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront08.png"
+        },
+        {
+          "id": "HairFront09",
+          "src": "/art/layers/HairFront/HairFront09.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront09.png"
+        },
+        {
+          "id": "HairFront10",
+          "src": "/art/layers/HairFront/HairFront10.png",
+          "thumb": "/art/thumbnails/HairFront/HairFront10.png"
+        }
+      ]
+    },
+    {
+      "id": "Eyes",
+      "label": "Eyes",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "Eyes01",
+          "src": "/art/layers/Eyes/Eyes01.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes01.png"
+        },
+        {
+          "id": "Eyes02",
+          "src": "/art/layers/Eyes/Eyes02.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes02.png"
+        },
+        {
+          "id": "Eyes03",
+          "src": "/art/layers/Eyes/Eyes03.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes03.png"
+        },
+        {
+          "id": "Eyes04",
+          "src": "/art/layers/Eyes/Eyes04.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes04.png"
+        },
+        {
+          "id": "Eyes05",
+          "src": "/art/layers/Eyes/Eyes05.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes05.png"
+        },
+        {
+          "id": "Eyes06",
+          "src": "/art/layers/Eyes/Eyes06.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes06.png"
+        },
+        {
+          "id": "Eyes07",
+          "src": "/art/layers/Eyes/Eyes07.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes07.png"
+        },
+        {
+          "id": "Eyes08",
+          "src": "/art/layers/Eyes/Eyes08.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes08.png"
+        },
+        {
+          "id": "Eyes09",
+          "src": "/art/layers/Eyes/Eyes09.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes09.png"
+        },
+        {
+          "id": "Eyes10",
+          "src": "/art/layers/Eyes/Eyes10.png",
+          "thumb": "/art/thumbnails/Eyes/Eyes10.png"
+        }
+      ]
+    },
+    {
+      "id": "Brows",
+      "label": "Eyebrows",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "Brows01",
+          "src": "/art/layers/Brows/Brows01.png",
+          "thumb": "/art/thumbnails/Brows/Brows01.png"
+        },
+        {
+          "id": "Brows02",
+          "src": "/art/layers/Brows/Brows02.png",
+          "thumb": "/art/thumbnails/Brows/Brows02.png"
+        },
+        {
+          "id": "Brows03",
+          "src": "/art/layers/Brows/Brows03.png",
+          "thumb": "/art/thumbnails/Brows/Brows03.png"
+        },
+        {
+          "id": "Brows04",
+          "src": "/art/layers/Brows/Brows04.png",
+          "thumb": "/art/thumbnails/Brows/Brows04.png"
+        },
+        {
+          "id": "Brows05",
+          "src": "/art/layers/Brows/Brows05.png",
+          "thumb": "/art/thumbnails/Brows/Brows05.png"
+        },
+        {
+          "id": "Brows06",
+          "src": "/art/layers/Brows/Brows06.png",
+          "thumb": "/art/thumbnails/Brows/Brows06.png"
+        },
+        {
+          "id": "Brows07",
+          "src": "/art/layers/Brows/Brows07.png",
+          "thumb": "/art/thumbnails/Brows/Brows07.png"
+        },
+        {
+          "id": "Brows08",
+          "src": "/art/layers/Brows/Brows08.png",
+          "thumb": "/art/thumbnails/Brows/Brows08.png"
+        },
+        {
+          "id": "Brows09",
+          "src": "/art/layers/Brows/Brows09.png",
+          "thumb": "/art/thumbnails/Brows/Brows09.png"
+        },
+        {
+          "id": "Brows10",
+          "src": "/art/layers/Brows/Brows10.png",
+          "thumb": "/art/thumbnails/Brows/Brows10.png"
+        }
+      ]
+    },
+    {
+      "id": "Nose",
+      "label": "Nose",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "Nose01",
+          "src": "/art/layers/Nose/Nose01.png",
+          "thumb": "/art/thumbnails/Nose/Nose01.png"
+        },
+        {
+          "id": "Nose02",
+          "src": "/art/layers/Nose/Nose02.png",
+          "thumb": "/art/thumbnails/Nose/Nose02.png"
+        },
+        {
+          "id": "Nose03",
+          "src": "/art/layers/Nose/Nose03.png",
+          "thumb": "/art/thumbnails/Nose/Nose03.png"
+        },
+        {
+          "id": "Nose04",
+          "src": "/art/layers/Nose/Nose04.png",
+          "thumb": "/art/thumbnails/Nose/Nose04.png"
+        },
+        {
+          "id": "Nose05",
+          "src": "/art/layers/Nose/Nose05.png",
+          "thumb": "/art/thumbnails/Nose/Nose05.png"
+        },
+        {
+          "id": "Nose06",
+          "src": "/art/layers/Nose/Nose06.png",
+          "thumb": "/art/thumbnails/Nose/Nose06.png"
+        },
+        {
+          "id": "Nose07",
+          "src": "/art/layers/Nose/Nose07.png",
+          "thumb": "/art/thumbnails/Nose/Nose07.png"
+        },
+        {
+          "id": "Nose08",
+          "src": "/art/layers/Nose/Nose08.png",
+          "thumb": "/art/thumbnails/Nose/Nose08.png"
+        },
+        {
+          "id": "Nose09",
+          "src": "/art/layers/Nose/Nose09.png",
+          "thumb": "/art/thumbnails/Nose/Nose09.png"
+        },
+        {
+          "id": "Nose10",
+          "src": "/art/layers/Nose/Nose10.png",
+          "thumb": "/art/thumbnails/Nose/Nose10.png"
+        }
+      ]
+    },
+    {
+      "id": "Mouth",
+      "label": "Mouth",
+      "select": "single",
+      "required": true,
+      "options": [
+        {
+          "id": "Mouth01",
+          "src": "/art/layers/Mouth/Mouth01.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth01.png"
+        },
+        {
+          "id": "Mouth02",
+          "src": "/art/layers/Mouth/Mouth02.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth02.png"
+        },
+        {
+          "id": "Mouth03",
+          "src": "/art/layers/Mouth/Mouth03.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth03.png"
+        },
+        {
+          "id": "Mouth04",
+          "src": "/art/layers/Mouth/Mouth04.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth04.png"
+        },
+        {
+          "id": "Mouth05",
+          "src": "/art/layers/Mouth/Mouth05.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth05.png"
+        },
+        {
+          "id": "Mouth06",
+          "src": "/art/layers/Mouth/Mouth06.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth06.png"
+        },
+        {
+          "id": "Mouth07",
+          "src": "/art/layers/Mouth/Mouth07.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth07.png"
+        },
+        {
+          "id": "Mouth08",
+          "src": "/art/layers/Mouth/Mouth08.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth08.png"
+        },
+        {
+          "id": "Mouth09",
+          "src": "/art/layers/Mouth/Mouth09.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth09.png"
+        },
+        {
+          "id": "Mouth10",
+          "src": "/art/layers/Mouth/Mouth10.png",
+          "thumb": "/art/thumbnails/Mouth/Mouth10.png"
+        }
+      ]
+    },
+    {
+      "id": "Beard",
+      "label": "Beard",
+      "select": "single",
+      "options": [
+        {
+          "id": "Beard01",
+          "src": "/art/layers/Beard/Beard01.png",
+          "thumb": "/art/thumbnails/Beard/Beard01.png"
+        },
+        {
+          "id": "Beard02",
+          "src": "/art/layers/Beard/Beard02.png",
+          "thumb": "/art/thumbnails/Beard/Beard02.png"
+        },
+        {
+          "id": "Beard03",
+          "src": "/art/layers/Beard/Beard03.png",
+          "thumb": "/art/thumbnails/Beard/Beard03.png"
+        },
+        {
+          "id": "Beard04",
+          "src": "/art/layers/Beard/Beard04.png",
+          "thumb": "/art/thumbnails/Beard/Beard04.png"
+        },
+        {
+          "id": "Beard05",
+          "src": "/art/layers/Beard/Beard05.png",
+          "thumb": "/art/thumbnails/Beard/Beard05.png"
+        },
+        {
+          "id": "Beard06",
+          "src": "/art/layers/Beard/Beard06.png",
+          "thumb": "/art/thumbnails/Beard/Beard06.png"
+        },
+        {
+          "id": "Beard07",
+          "src": "/art/layers/Beard/Beard07.png",
+          "thumb": "/art/thumbnails/Beard/Beard07.png"
+        },
+        {
+          "id": "Beard08",
+          "src": "/art/layers/Beard/Beard08.png",
+          "thumb": "/art/thumbnails/Beard/Beard08.png"
+        },
+        {
+          "id": "Beard09",
+          "src": "/art/layers/Beard/Beard09.png",
+          "thumb": "/art/thumbnails/Beard/Beard09.png"
+        },
+        {
+          "id": "Beard10",
+          "src": "/art/layers/Beard/Beard10.png",
+          "thumb": "/art/thumbnails/Beard/Beard10.png"
+        }
+      ]
+    },
+    {
+      "id": "Glasses",
+      "label": "Glasses",
+      "select": "single",
+      "options": [
+        {
+          "id": "Glasses01",
+          "src": "/art/layers/Glasses/Glasses01.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses01.png"
+        },
+        {
+          "id": "Glasses02",
+          "src": "/art/layers/Glasses/Glasses02.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses02.png"
+        },
+        {
+          "id": "Glasses03",
+          "src": "/art/layers/Glasses/Glasses03.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses03.png"
+        },
+        {
+          "id": "Glasses04",
+          "src": "/art/layers/Glasses/Glasses04.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses04.png"
+        },
+        {
+          "id": "Glasses05",
+          "src": "/art/layers/Glasses/Glasses05.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses05.png"
+        },
+        {
+          "id": "Glasses06",
+          "src": "/art/layers/Glasses/Glasses06.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses06.png"
+        },
+        {
+          "id": "Glasses07",
+          "src": "/art/layers/Glasses/Glasses07.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses07.png"
+        },
+        {
+          "id": "Glasses08",
+          "src": "/art/layers/Glasses/Glasses08.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses08.png"
+        },
+        {
+          "id": "Glasses09",
+          "src": "/art/layers/Glasses/Glasses09.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses09.png"
+        },
+        {
+          "id": "Glasses10",
+          "src": "/art/layers/Glasses/Glasses10.png",
+          "thumb": "/art/thumbnails/Glasses/Glasses10.png"
+        }
+      ]
+    },
+    {
+      "id": "Headwear",
+      "label": "Headwear",
+      "select": "multi",
+      "options": [
+        {
+          "id": "Headwear01",
+          "src": "/art/layers/Headwear/Headwear01.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear01.png"
+        },
+        {
+          "id": "Headwear02",
+          "src": "/art/layers/Headwear/Headwear02.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear02.png"
+        },
+        {
+          "id": "Headwear03",
+          "src": "/art/layers/Headwear/Headwear03.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear03.png"
+        },
+        {
+          "id": "Headwear04",
+          "src": "/art/layers/Headwear/Headwear04.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear04.png"
+        },
+        {
+          "id": "Headwear05",
+          "src": "/art/layers/Headwear/Headwear05.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear05.png"
+        },
+        {
+          "id": "Headwear06",
+          "src": "/art/layers/Headwear/Headwear06.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear06.png"
+        },
+        {
+          "id": "Headwear07",
+          "src": "/art/layers/Headwear/Headwear07.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear07.png"
+        },
+        {
+          "id": "Headwear08",
+          "src": "/art/layers/Headwear/Headwear08.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear08.png"
+        },
+        {
+          "id": "Headwear09",
+          "src": "/art/layers/Headwear/Headwear09.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear09.png"
+        },
+        {
+          "id": "Headwear10",
+          "src": "/art/layers/Headwear/Headwear10.png",
+          "thumb": "/art/thumbnails/Headwear/Headwear10.png"
+        }
+      ]
+    },
+    {
+      "id": "Badges",
+      "label": "Badges",
+      "select": "multi",
+      "options": [
+        {
+          "id": "Badges01",
+          "src": "/art/layers/Badges/Badges01.png",
+          "thumb": "/art/thumbnails/Badges/Badges01.png"
+        },
+        {
+          "id": "Badges02",
+          "src": "/art/layers/Badges/Badges02.png",
+          "thumb": "/art/thumbnails/Badges/Badges02.png"
+        },
+        {
+          "id": "Badges03",
+          "src": "/art/layers/Badges/Badges03.png",
+          "thumb": "/art/thumbnails/Badges/Badges03.png"
+        },
+        {
+          "id": "Badges04",
+          "src": "/art/layers/Badges/Badges04.png",
+          "thumb": "/art/thumbnails/Badges/Badges04.png"
+        },
+        {
+          "id": "Badges05",
+          "src": "/art/layers/Badges/Badges05.png",
+          "thumb": "/art/thumbnails/Badges/Badges05.png"
+        },
+        {
+          "id": "Badges06",
+          "src": "/art/layers/Badges/Badges06.png",
+          "thumb": "/art/thumbnails/Badges/Badges06.png"
+        },
+        {
+          "id": "Badges07",
+          "src": "/art/layers/Badges/Badges07.png",
+          "thumb": "/art/thumbnails/Badges/Badges07.png"
+        },
+        {
+          "id": "Badges08",
+          "src": "/art/layers/Badges/Badges08.png",
+          "thumb": "/art/thumbnails/Badges/Badges08.png"
+        },
+        {
+          "id": "Badges09",
+          "src": "/art/layers/Badges/Badges09.png",
+          "thumb": "/art/thumbnails/Badges/Badges09.png"
+        },
+        {
+          "id": "Badges10",
+          "src": "/art/layers/Badges/Badges10.png",
+          "thumb": "/art/thumbnails/Badges/Badges10.png"
+        }
+      ]
+    },
+    {
+      "id": "Stickers",
+      "label": "Stickers",
+      "select": "multi",
+      "options": [
+        {
+          "id": "Stickers01",
+          "src": "/art/layers/Stickers/Stickers01.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers01.png"
+        },
+        {
+          "id": "Stickers02",
+          "src": "/art/layers/Stickers/Stickers02.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers02.png"
+        },
+        {
+          "id": "Stickers03",
+          "src": "/art/layers/Stickers/Stickers03.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers03.png"
+        },
+        {
+          "id": "Stickers04",
+          "src": "/art/layers/Stickers/Stickers04.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers04.png"
+        },
+        {
+          "id": "Stickers05",
+          "src": "/art/layers/Stickers/Stickers05.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers05.png"
+        },
+        {
+          "id": "Stickers06",
+          "src": "/art/layers/Stickers/Stickers06.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers06.png"
+        },
+        {
+          "id": "Stickers07",
+          "src": "/art/layers/Stickers/Stickers07.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers07.png"
+        },
+        {
+          "id": "Stickers08",
+          "src": "/art/layers/Stickers/Stickers08.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers08.png"
+        },
+        {
+          "id": "Stickers09",
+          "src": "/art/layers/Stickers/Stickers09.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers09.png"
+        },
+        {
+          "id": "Stickers10",
+          "src": "/art/layers/Stickers/Stickers10.png",
+          "thumb": "/art/thumbnails/Stickers/Stickers10.png"
+        }
+      ]
+    },
+    {
+      "id": "CardChrome",
+      "label": "Frame",
+      "select": "single",
+      "required": true,
+      "fixed": true,
+      "options": [
+        {
+          "id": "CardChromeDefault",
+          "src": "/art/layers/CardChrome/CardChromeDefault.png",
+          "thumb": "/art/thumbnails/CardChrome/CardChromeDefault.png"
+        }
+      ]
+    }
+  ],
+  "textFields": [
+    {
+      "id": "name",
+      "label": "Name",
+      "x": 2000,
+      "y": 480,
+      "fontSize": 110,
+      "maxLength": 24,
+      "align": "left"
+    },
+    {
+      "id": "birthday",
+      "label": "Birthday",
+      "x": 2000,
+      "y": 800,
+      "fontSize": 110,
+      "maxLength": 18,
+      "align": "left"
+    },
+    {
+      "id": "class",
+      "label": "Class",
+      "x": 2000,
+      "y": 1120,
+      "fontSize": 110,
+      "maxLength": 18,
+      "align": "left"
+    },
+    {
+      "id": "nationality",
+      "label": "Nationality",
+      "x": 2000,
+      "y": 1440,
+      "fontSize": 110,
+      "maxLength": 20,
+      "align": "left"
+    },
+    {
+      "id": "code",
+      "label": "Code",
+      "x": 1990,
+      "y": 2150,
+      "fontSize": 78,
+      "maxLength": 24,
+      "align": "left"
+    }
+  ]
+}

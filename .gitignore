@@ -1,0 +1,7 @@
+node_modules/
+dist/
+public/manifest.json
+public/art/thumbnails/
+scripts/preview.png
+.DS_Store
+*.local
