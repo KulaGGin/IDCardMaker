@@ -1,0 +1,70 @@
+@use '../styles/settings' as s;
+@use '../styles/mixins' as m;
+
+.icm-Upload {
+  display: flex;
+  flex-direction: column;
+  gap: s.$space-2;
+}
+
+.icm-Upload_Title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: s.$muted;
+}
+
+.icm-Upload_Drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: s.$space-5 s.$space-4;
+  border: 2px dashed s.$line;
+  border-radius: s.$radius-sm;
+  background: s.$panel;
+  color: s.$muted;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+
+.icm-Upload_Drop:hover,
+.icm-Upload_Drop-over {
+  border-color: s.$accent;
+  color: s.$ink;
+}
+
+.icm-Upload_Input {
+  display: none;
+}
+
+.icm-Upload_Hint {
+  margin: 0;
+  font-size: 12px;
+  color: s.$muted;
+}
+
+.icm-Upload_Hint code {
+  font-family: inherit;
+  background: s.$bg;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.icm-Upload_Status {
+  margin: 0;
+  font-size: 12px;
+  color: s.$ink;
+}
+
+.icm-Upload_Clear {
+  @include m.button-reset;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 600;
+  color: s.$accent;
+  text-decoration: underline;
+}

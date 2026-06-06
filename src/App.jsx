@@ -1,23 +1,31 @@
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useManifest } from './hooks/useManifest.js';
 import { useCardState } from './hooks/useCardState.js';
+import { useUserAssets } from './hooks/useUserAssets.js';
 import CardStage from './components/CardStage.jsx';
 import LayerPicker from './components/LayerPicker.jsx';
 import TextFieldsPanel from './components/TextFieldsPanel.jsx';
 import Toolbar from './components/Toolbar.jsx';
+import UploadPack from './components/UploadPack.jsx';
 import { downloadCard } from './utils/exportImage.js';
+import { mergeManifest } from './utils/userPack.js';
 import { CANVAS_WIDTH } from './utils/constants.js';
 import './App.scss';
 
 export default function App() {
   const { manifest, loading, error } = useManifest();
-  if (loading) return <div className="icm-App_State">Loading…</div>;
+  const userAssets = useUserAssets();
+  // Wait for the manifest AND any persisted packs so useCardState initializes
+  // against the merged manifest (URL-restored uploaded selections resolve).
+  if (loading || userAssets.loading) return <div className="icm-App_State">Loading…</div>;
   if (error) return <div className="icm-App_State">Failed to load manifest: {String(error)}</div>;
-  return <Editor manifest={manifest} />;
+  return <Editor manifest={manifest} userAssets={userAssets} />;
 }
 
-function Editor({ manifest }) {
-  const card = useCardState(manifest);
+function Editor({ manifest, userAssets }) {
+  const { userOptions, addPack, clear, lastResult } = userAssets;
+  const mergedManifest = useMemo(() => mergeManifest(manifest, userOptions), [manifest, userOptions]);
+  const card = useCardState(mergedManifest);
   const stageRef = useRef(null);
   const [scale, setScale] = useState(0.2);
   const [busy, setBusy] = useState(false);
@@ -38,7 +46,7 @@ function Editor({ manifest }) {
     try {
       await downloadCard({
         node: stageRef.current,
-        manifest,
+        manifest: mergedManifest,
         selections: card.selections,
         text: card.text,
         filename: card.text.name || 'id-card',
@@ -46,7 +54,7 @@ function Editor({ manifest }) {
     } finally {
       setBusy(false);
     }
-  }, [manifest, card.selections, card.text]);
+  }, [mergedManifest, card.selections, card.text]);
 
   const onCopyLink = useCallback(async () => {
     try {
@@ -56,6 +64,8 @@ function Editor({ manifest }) {
     }
   }, []);
 
+  const onAddPack = useCallback((file) => addPack(file, manifest), [addPack, manifest]);
+
   return (
     <div className="icm-App">
       <header className="icm-App_Header">
@@ -63,9 +73,15 @@ function Editor({ manifest }) {
       </header>
       <main className="icm-App_Main">
         <aside className="icm-App_Sidebar">
-          <TextFieldsPanel manifest={manifest} text={card.text} onText={card.setText} />
+          <UploadPack
+            onAddPack={onAddPack}
+            onClear={clear}
+            hasUploads={Object.keys(userOptions).length > 0}
+            lastResult={lastResult}
+          />
+          <TextFieldsPanel manifest={mergedManifest} text={card.text} onText={card.setText} />
           <LayerPicker
-            manifest={manifest}
+            manifest={mergedManifest}
             selections={card.selections}
             onSingle={card.setSingle}
             onClearSingle={card.clearSingle}
@@ -76,7 +92,7 @@ function Editor({ manifest }) {
           <div className="icm-App_Card">
             <CardStage
               ref={stageRef}
-              manifest={manifest}
+              manifest={mergedManifest}
               selections={card.selections}
               text={card.text}
               scale={scale}
