@@ -28,6 +28,7 @@ OUT_ROOT = REPO_ROOT / "public" / "art" / "layers"  # /art/ not /assets/ (Vite d
 
 TRANSPARENT = (0, 0, 0, 0)
 S = SUPERSAMPLE
+FACE_CX = 990  # horizontal mirror axis (face center) for paired features: ears, eyes, brows
 
 
 def rgba(h: str, a: int = 255) -> tuple[int, int, int, int]:
@@ -41,6 +42,7 @@ def rgba(h: str, a: int = 255) -> tuple[int, int, int, int]:
 #   shape "ellipse":      geom = {"center": (cx, cy), "radii": (rx, ry)}
 #   shape "circle":       geom = {"center": (cx, cy), "r": radius}
 #   shape "chrome":       geom = None  (frame + label lines + barcode; fill = ink)
+#   add "mirror": True to geom to also draw a horizontal mirror across FACE_CX (paired features)
 # Geometry is in 1x canvas pixels; scaled by SUPERSAMPLE at draw time.
 ASSETS = [
     # ---- single-select: two color variants at the SAME position ----
@@ -60,6 +62,19 @@ ASSETS = [
     ("HairFront",     "HairFrontAuburn",    "rect",    {"box": (620, 600, 740, 420)},           "#C24B5A"),
     ("Glasses",       "GlassesBlack",       "rrect",   {"box": (740, 980, 500, 120), "r": 40},  "#2E2A28"),
     ("Glasses",       "GlassesBlue",        "rrect",   {"box": (740, 980, 500, 120), "r": 40},  "#2A6FB0"),
+    # ---- facial features (granular, single-select; "mirror" pairs across FACE_CX) ----
+    ("Ears",  "EarsLight",  "ellipse", {"center": (680, 1090), "radii": (70, 120), "mirror": True}, "#FCE0C0"),
+    ("Ears",  "EarsTan",    "ellipse", {"center": (680, 1090), "radii": (70, 120), "mirror": True}, "#F6CBA6"),
+    ("Eyes",  "EyesBrown",  "ellipse", {"center": (870, 1040), "radii": (55, 38), "mirror": True},  "#5B3A29"),
+    ("Eyes",  "EyesBlue",   "ellipse", {"center": (870, 1040), "radii": (55, 38), "mirror": True},  "#3A6EA5"),
+    ("Brows", "BrowsBrown", "rrect",   {"box": (800, 952, 140, 30), "r": 15, "mirror": True},       "#6B4A2F"),
+    ("Brows", "BrowsBlack", "rrect",   {"box": (800, 952, 140, 30), "r": 15, "mirror": True},       "#2E2A28"),
+    ("Nose",  "NoseLight",  "rrect",   {"box": (962, 1085, 56, 130), "r": 24},                      "#E8B894"),
+    ("Nose",  "NoseTan",    "rrect",   {"box": (962, 1085, 56, 130), "r": 24},                      "#C98E6B"),
+    ("Mouth", "MouthPink",  "rrect",   {"box": (882, 1270, 216, 64), "r": 30},                      "#D9657A"),
+    ("Mouth", "MouthCoral", "rrect",   {"box": (882, 1270, 216, 64), "r": 30},                      "#E0815A"),
+    ("Beard", "BeardBrown", "rrect",   {"box": (760, 1330, 460, 200), "r": 90},                     "#6B4A2F"),
+    ("Beard", "BeardBlack", "rrect",   {"box": (760, 1330, 460, 200), "r": 90},                     "#2E2A28"),
     # ---- multi-select: two options at DIFFERENT positions ----
     ("Headwear",      "HeadwearCapRed",     "rect",    {"box": (640, 460, 700, 160)},           "#E0556A"),
     ("Headwear",      "HeadwearBowBlue",    "rect",    {"box": (1240, 420, 260, 180)},          "#4A8FE0"),
@@ -79,8 +94,14 @@ PREVIEW_ORDER = [
     ("BodyBase", "BodyBaseWarm"),
     ("Clothes", "ClothesTeal"),
     ("HairBack", "HairBackBrown"),
+    ("Ears", "EarsLight"),
     ("Face", "FacePeach"),
     ("HairFront", "HairFrontBrown"),
+    ("Eyes", "EyesBrown"),
+    ("Brows", "BrowsBrown"),
+    ("Nose", "NoseLight"),
+    ("Mouth", "MouthPink"),
+    ("Beard", "BeardBrown"),
     ("Glasses", "GlassesBlack"),
     ("Headwear", "HeadwearCapRed"),
     ("Headwear", "HeadwearBowBlue"),
@@ -92,10 +113,11 @@ PREVIEW_ORDER = [
 ]
 
 
-def draw_shape(d: ImageDraw.ImageDraw, shape: str, geom: dict, fill) -> None:
-    """Draw one primitive on the supersampled canvas (coords scaled by S)."""
+def _draw_primitive(d: ImageDraw.ImageDraw, shape: str, geom: dict, fill, flip: bool) -> None:
     if shape in ("rect", "rrect"):
         x, y, w, h = geom["box"]
+        if flip:
+            x = 2 * FACE_CX - x - w
         box = [x * S, y * S, (x + w) * S, (y + h) * S]
         if shape == "rrect":
             d.rounded_rectangle(box, radius=geom.get("r", 0) * S, fill=fill)
@@ -104,13 +126,24 @@ def draw_shape(d: ImageDraw.ImageDraw, shape: str, geom: dict, fill) -> None:
     elif shape == "ellipse":
         cx, cy = geom["center"]
         rx, ry = geom["radii"]
+        if flip:
+            cx = 2 * FACE_CX - cx
         d.ellipse([(cx - rx) * S, (cy - ry) * S, (cx + rx) * S, (cy + ry) * S], fill=fill)
     elif shape == "circle":
         cx, cy = geom["center"]
         r = geom["r"]
+        if flip:
+            cx = 2 * FACE_CX - cx
         d.ellipse([(cx - r) * S, (cy - r) * S, (cx + r) * S, (cy + r) * S], fill=fill)
     else:
         raise ValueError(f"unknown shape: {shape}")
+
+
+def draw_shape(d: ImageDraw.ImageDraw, shape: str, geom: dict, fill) -> None:
+    """Draw a primitive (scaled by S); if geom['mirror'], also draw its mirror across FACE_CX."""
+    _draw_primitive(d, shape, geom, fill, False)
+    if geom.get("mirror"):
+        _draw_primitive(d, shape, geom, fill, True)
 
 
 def draw_chrome(d: ImageDraw.ImageDraw, ink) -> None:
