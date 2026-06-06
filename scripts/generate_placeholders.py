@@ -24,7 +24,7 @@ from PIL import Image, ImageDraw
 CANVAS = (3840, 2420)          # (w, h) for every asset
 SUPERSAMPLE = 2                # render at Nx, downscale for clean edges
 REPO_ROOT = Path(__file__).resolve().parent.parent
-OUT_ROOT = REPO_ROOT / "public" / "assets" / "layers"
+OUT_ROOT = REPO_ROOT / "public" / "art" / "layers"  # /art/ not /assets/ (Vite dev reserves /assets/)
 
 TRANSPARENT = (0, 0, 0, 0)
 S = SUPERSAMPLE
