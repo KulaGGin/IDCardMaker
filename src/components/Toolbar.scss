@@ -1,0 +1,34 @@
+@use '../styles/settings' as s;
+@use '../styles/mixins' as m;
+
+.icm-Bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: s.$space-2;
+  justify-content: center;
+}
+
+.icm-Bar_Button {
+  @include m.button-reset;
+  padding: s.$space-3 s.$space-5;
+  border: 1px solid s.$line;
+  border-radius: s.$radius-sm;
+  background: s.$panel;
+  font-weight: 600;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.icm-Bar_Button:hover {
+  border-color: s.$muted;
+}
+
+.icm-Bar_Button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.icm-Bar_Button-primary {
+  background: s.$accent;
+  color: s.$accent-ink;
+  border-color: s.$accent;
+}

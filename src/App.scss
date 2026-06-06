@@ -1,0 +1,71 @@
+@use './styles/settings' as s;
+@use './styles/mixins' as m;
+
+.icm-App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.icm-App_Header {
+  padding: s.$space-4 s.$space-5;
+  background: s.$panel;
+  border-bottom: 1px solid s.$line;
+}
+
+.icm-App_Title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.icm-App_Main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: s.$space-5;
+  padding: s.$space-5;
+
+  @include m.respond-to(s.$bp-md) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.icm-App_Sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: s.$space-5;
+  width: 100%;
+
+  @include m.respond-to(s.$bp-md) {
+    flex: 0 0 360px;
+    width: 360px;
+  }
+}
+
+.icm-App_Preview {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: s.$space-4;
+  align-items: center;
+  min-width: 0;
+
+  @include m.respond-to(s.$bp-md) {
+    position: sticky;
+    top: s.$space-5;
+  }
+}
+
+.icm-App_Card {
+  width: 100%;
+  border-radius: s.$radius;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+}
+
+.icm-App_State {
+  padding: s.$space-6;
+  font-size: 18px;
+}

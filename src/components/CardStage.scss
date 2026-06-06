@@ -1,0 +1,28 @@
+@use '../styles/settings' as s;
+
+.icm-Stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: #{s.$canvas-w} / #{s.$canvas-h};
+  background: transparent;
+}
+
+.icm-Stage_Layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.icm-Stage_Text {
+  position: absolute;
+  z-index: 100;
+  color: s.$ink;
+  font-family: s.$font;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}

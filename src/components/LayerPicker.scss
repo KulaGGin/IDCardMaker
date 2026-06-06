@@ -1,0 +1,61 @@
+@use '../styles/settings' as s;
+@use '../styles/mixins' as m;
+
+.icm-Picker {
+  display: flex;
+  flex-direction: column;
+  gap: s.$space-5;
+}
+
+.icm-Picker_Group {
+  display: flex;
+  flex-direction: column;
+  gap: s.$space-2;
+}
+
+.icm-Picker_Title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: s.$muted;
+}
+
+.icm-Picker_Options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: s.$space-2;
+}
+
+.icm-Picker_Option {
+  @include m.button-reset;
+  width: 96px;
+  aspect-ratio: #{s.$canvas-w} / #{s.$canvas-h};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid s.$line;
+  border-radius: s.$radius-sm;
+  background: s.$panel;
+  font-size: 12px;
+  font-weight: 600;
+  color: s.$muted;
+  transition: border-color 120ms ease;
+}
+
+.icm-Picker_Option:hover {
+  border-color: s.$muted;
+}
+
+.icm-Picker_Option-selected {
+  border-color: s.$accent;
+  box-shadow: 0 0 0 2px rgba(224, 86, 107, 0.25);
+}
+
+.icm-Picker_Thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

@@ -1,0 +1,30 @@
+// Shared mixins (ECSS). Consumed via @use by component modules.
+
+@mixin button-reset {
+  appearance: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin respond-to($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}

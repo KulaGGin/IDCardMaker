@@ -1,0 +1,35 @@
+@use '../styles/settings' as s;
+
+.icm-Fields {
+  display: flex;
+  flex-direction: column;
+  gap: s.$space-3;
+}
+
+.icm-Fields_Row {
+  display: flex;
+  flex-direction: column;
+  gap: s.$space-1;
+}
+
+.icm-Fields_Label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: s.$muted;
+}
+
+.icm-Fields_Input {
+  font: inherit;
+  padding: s.$space-3;
+  border: 1px solid s.$line;
+  border-radius: s.$radius-sm;
+  background: s.$panel;
+  color: s.$ink;
+}
+
+.icm-Fields_Input:focus {
+  outline: 2px solid s.$accent;
+  border-color: s.$accent;
+}

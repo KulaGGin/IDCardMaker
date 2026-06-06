@@ -1,0 +1,33 @@
+// Shared design tokens - the single source of truth (ECSS "settings").
+$ns: 'icm';
+
+// canvas
+$canvas-w: 3840;
+$canvas-h: 2420;
+
+// palette
+$ink: #4a2c3a;
+$bg: #f3eef0;
+$panel: #ffffff;
+$line: #e3d9dd;
+$accent: #e0566b;
+$accent-ink: #ffffff;
+$muted: #8a7a80;
+
+// type
+$font: 'Quicksand', system-ui, sans-serif;
+
+// spacing
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+
+// radius
+$radius: 12px;
+$radius-sm: 8px;
+
+// breakpoints
+$bp-md: 900px;
