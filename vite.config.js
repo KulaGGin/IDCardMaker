@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/IDCardMaker/',
   server: {
     port: 5173,
     // Fail loudly if 5173 is already in use instead of silently starting a 2nd

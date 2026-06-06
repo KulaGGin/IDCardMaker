@@ -52,8 +52,8 @@ async function main() {
       }
       options.push({
         id,
-        src: `/art/layers/${cat.id}/${file}`,
-        thumb: `/art/thumbnails/${cat.id}/${file}`,
+        src: `art/layers/${cat.id}/${file}`,
+        thumb: `art/thumbnails/${cat.id}/${file}`,
       });
       optionCount += 1;
     }

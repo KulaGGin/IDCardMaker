@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "homepage": "https://KulaGGin.github.io/IDCardMaker",
   "scripts": {
     "assets": "node scripts/build-manifest.mjs",
     "predev": "npm run assets",
@@ -10,7 +11,9 @@
     "prebuild": "npm run assets",
     "build": "vite build",
     "preview": "vite preview",
-    "placeholders": "python scripts/generate_placeholders.py --preview"
+    "placeholders": "python scripts/generate_placeholders.py --preview",
+	"predeploy": "npm run build",
+	"deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fontsource/quicksand": "^5.1.0",
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "gh-pages": "^6.3.0",
     "sass": "^1.83.0",
     "sharp": "^0.33.5",
     "vite": "^5.4.11"
